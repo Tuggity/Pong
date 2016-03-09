@@ -1,4 +1,5 @@
 public class controller {
+  boolean isPlayer;
 }
 
 public class playerController extends controller{
