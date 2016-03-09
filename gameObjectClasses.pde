@@ -1,6 +1,13 @@
-public class ball {
+private class gameObject {
   //position & size
   float x, y;
+  
+  public boolean collision(gameObject obj){
+    return false;
+  }
+}
+
+public class ball extends gameObject  {
   float radius;
   
   //angle and speed
@@ -28,4 +35,8 @@ public class ball {
     strokeWeight(10);
     point(x, y);
   }  
+}
+
+public class bat extends gameObject{
+  
 }
