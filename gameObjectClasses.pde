@@ -27,7 +27,8 @@ public class ball extends gameObject  {
     x = 150;
     y = 100;
     
-    speed = 1;
+    speed = 2;
+    direction = 1;
   }
   
   public void pitchBall() {
@@ -40,7 +41,12 @@ public class ball extends gameObject  {
   };
   
   public void update() {
-   x += 1; 
+   //non final implementation, no collison detection
+   if (x < 25)
+     direction = 1;
+   else if (x > 300-25)
+     direction = -1;
+   x += speed*direction; 
   }
   
   public void draw() {
