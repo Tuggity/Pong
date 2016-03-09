@@ -69,7 +69,7 @@ public class bat extends gameObject{
       x = 15;
     }
     
-    y = 100;
+    y = 10;
     
     w = 5;
     h = 50;
@@ -78,6 +78,12 @@ public class bat extends gameObject{
   public void update(){
     if (currentController.isPlayer){
       y = mouseY;
+    } else {
+      if (newBall.y < y) {
+       y--; 
+      } else if (newBall.y > y) {
+       y++; 
+      }
     }
   }
   

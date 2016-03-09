@@ -2,7 +2,7 @@
 //by Kasper Kristensen 09-03-2016
 
 ArrayList<gameObject> objects;
-ball newBall;
+public ball newBall;
 bat playerBat, aiBat;
 controller player, ai;
 
