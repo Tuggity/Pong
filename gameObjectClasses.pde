@@ -75,6 +75,12 @@ public class bat extends gameObject{
     h = 50;
   }
   
+  public void update(){
+    if (currentController.isPlayer){
+      y = mouseY;
+    }
+  }
+  
   public void draw(){
     stroke(255);
     rect(x-w/2,y-h/2,w,h);

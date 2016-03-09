@@ -1,4 +1,4 @@
-//Pong Clone v0.1
+//Pong Clone v0.2
 //by Kasper Kristensen 09-03-2016
 
 ArrayList<gameObject> objects;
