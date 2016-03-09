@@ -5,6 +5,14 @@ private class gameObject {
   public boolean collision(gameObject obj){
     return false;
   }
+  
+  public void draw(){
+    
+  }
+  
+  public void update(){
+    
+  }
 }
 
 public class ball extends gameObject  {
@@ -15,7 +23,7 @@ public class ball extends gameObject  {
   float speed;
   
   //create ball and set initial direction
-  private ball(){
+  public ball(){
     x = 150;
     y = 100;
     
@@ -26,6 +34,10 @@ public class ball extends gameObject  {
     direction = random(360);
     speed = 1;
   }
+  
+  public boolean collision(bat test){
+    return false;
+  };
   
   public void update() {
    x += 1; 
@@ -38,5 +50,27 @@ public class ball extends gameObject  {
 }
 
 public class bat extends gameObject{
+  controller currentController;
   
+  float w, h;
+  
+  public bat(controller setController, boolean isRight){
+    currentController = setController;
+    
+    if (!isRight) {
+      x = 300-15;
+    } else {
+      x = 15;
+    }
+    
+    y = 100;
+    
+    w = 5;
+    h = 50;
+  }
+  
+  public void draw(){
+    stroke(255);
+    rect(x-w/2,y-h/2,w,h);
+  }
 }
