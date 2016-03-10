@@ -1,39 +1,17 @@
 //Pong Clone v0.2
 //by Kasper Kristensen 09-03-2016
 
-ArrayList<gameObject> objects;
-public ball newBall;
-bat playerBat, aiBat;
-controller player, ai;
+screen currentScreen;
+game gameInstance;
 
 void setup() {  
   size(300,200);
-  
-  objects = new ArrayList<gameObject>();
-  
-  player = new playerController();
-  ai = new aiController();
-  
-  newBall = new ball();
-  objects.add(newBall);
-  
-  playerBat = new bat(player, true);
-  objects.add(playerBat);
-  
-  aiBat = new bat(ai, false);
-  objects.add(aiBat);
+  gameInstance = new game();
+  currentScreen = gameInstance;
 }
 
 void draw() {
-    //game logic
-    for (int i = 0; i < objects.size(); i++) {
-      objects.get(i).update();
-    }
-    
-    //rendering
-    background(0);
-    stroke(255);
-    for (int i = 0; i < objects.size(); i++) {
-      objects.get(i).draw();
-    }
+  currentScreen.update();
+  
+  currentScreen.draw();   
 }

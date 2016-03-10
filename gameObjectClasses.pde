@@ -76,15 +76,7 @@ public class bat extends gameObject{
   }
   
   public void update(){
-    if (currentController.isPlayer){
-      y = mouseY;
-    } else {
-      if (newBall.y < y) {
-       y--; 
-      } else if (newBall.y > y) {
-       y++; 
-      }
-    }
+    y = currentController.input(new PVector (x, y));
   }
   
   public void draw(){
