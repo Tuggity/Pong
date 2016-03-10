@@ -69,10 +69,14 @@ public class bat extends gameObject{
       x = 15;
     }
     
-    y = 100;
+    y = 10;
     
     w = 5;
     h = 50;
+  }
+  
+  public void update(){
+    y = currentController.input(new PVector (x, y));
   }
   
   public void draw(){
