@@ -31,6 +31,22 @@ public class mainMenu extends screen{
     if (selected) {fill(255, 0, 0);}
       else {fill(255, 255, 255);}
     text("Start", 150, 100);
+    
+    //paddle inverts colors
+    loadPixels();
+    PImage paddle = createImage(60, 20, RGB);
+    
+    //for (int i = 0; i < paddle.pixels.length; i++) {
+      for (int h = 0; h < paddle.height; h++){  
+        for (int w = 0; w < paddle.width; w++){
+          if (mouseY+h < 200 && mouseX+w < 300)
+            paddle.pixels[h*paddle.width+w] = pixels[(mouseY+h)*300+(mouseX+w)];
+        }
+      }
+    //}
+    paddle.filter(INVERT);
+    paddle.updatePixels();
+    image(paddle, mouseX, mouseY);
   }
 }
 

@@ -17,8 +17,8 @@ void draw() {
   currentScreen.update();
   
   //clear screen
-  background(0);
+  background(50);
   stroke(255);
   
-  currentScreen.draw();   
+  currentScreen.draw();
 }
