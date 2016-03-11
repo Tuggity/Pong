@@ -3,6 +3,37 @@ abstract class screen{
  abstract void draw();
 }
 
+public class mainMenu extends screen{
+  boolean selected;
+  public void update(){
+    if (mouseY > 100-textAscent() && mouseY < 100+textDescent()){
+      textSize(16);
+      if (mouseX > 150-textWidth("start")/2 && mouseX < 150+textWidth("start")/2){
+          selected = true;
+          if (mousePressed){
+            currentScreen = gameInstance;
+          }
+        } else {
+          selected = false;
+        }
+    } else {
+          selected = false;
+    }
+  }
+  
+  public void draw(){
+    textSize(32);
+    fill(255,255,255);
+    textAlign(CENTER);
+    text("PONG", 150, 50);
+    
+    textSize(16);
+    if (selected) {fill(255, 0, 0);}
+      else {fill(255, 255, 255);}
+    text("Start", 150, 100);
+  }
+}
+
 public class game extends screen{
   ArrayList<gameObject> objects;
   
@@ -38,8 +69,6 @@ public class game extends screen{
   
   public void draw(){
     //rendering
-    background(0);
-    stroke(255);
     for (int i = 0; i < objects.size(); i++) {
       objects.get(i).draw();
     } 
