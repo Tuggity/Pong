@@ -56,12 +56,12 @@ public class ball extends gameObject  {
 }
 
 public class bat extends gameObject{
-  controller currentController;
+  //controller currentController;
   
   float w, h;
   
-  public bat(controller setController, boolean isRight){
-    currentController = setController;
+  public bat(boolean isRight){
+    //currentController = setController;
     
     if (!isRight) {
       x = 300-15;
@@ -76,7 +76,7 @@ public class bat extends gameObject{
   }
   
   public void update(){
-    y = currentController.input(new PVector (x, y));
+    //y = currentController.input(new PVector (x, y));
   }
   
   public void draw(){
