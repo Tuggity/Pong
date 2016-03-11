@@ -12,18 +12,21 @@ public class game extends screen{
   
   public game(){
     objects = new ArrayList<gameObject>();
-  
-    player = new playerController();
-    ai = new aiController();
     
     newBall = new ball();
     objects.add(newBall);
     
-    playerBat = new bat(player, true);
+    playerBat = new bat(true);
     objects.add(playerBat);
     
-    aiBat = new bat(ai, false);
+    aiBat = new bat(false);
     objects.add(aiBat);
+    
+    player = new playerController(playerBat);
+    objects.add(player);
+    
+    ai = new aiController(aiBat, newBall);
+    objects.add(ai);
   }
   
   public void update(){
