@@ -12,16 +12,34 @@ public class mainMenu extends screen{
   
   public mainMenu(){
    screenBat.x = 150;
-   screenBat.y = 50;
+   screenBat.y = 40;
   }
   
   public void update(){
     if (mouseY > 100-textAscent() && mouseY < 100+textDescent()){
       textSize(16);
-      if (mouseX > 150-textWidth("start")/2 && mouseX < 150+textWidth("start")/2){
+      if (mouseX > 150-textWidth("Start")/2 && mouseX < 150+textWidth("Start")/2){
           selected = true;
+          screenBat.x = 150;
+           screenBat.y = 100-5;
           if (mousePressed){
             currentScreen = gameInstance;
+          }
+        } else {
+          selected = false;
+        }
+    } else {
+          selected = false;
+    } 
+    
+    if (mouseY > 115-textAscent() && mouseY < 115+textDescent()){
+      textSize(16);
+      if (mouseX > 150-textWidth("Quit")/2 && mouseX < 150+textWidth("Quit")/2){
+          selected = true;
+          screenBat.x = 150;
+           screenBat.y = 115-5;
+          if (mousePressed){
+            exit();
           }
         } else {
           selected = false;
@@ -32,15 +50,15 @@ public class mainMenu extends screen{
     
     if (paddleTilt > radians(-45+90) && paddleTilt < radians(45+90)){
       if (clockwise)
-          paddleTilt -= radians(0.5);
+          paddleTilt -= radians(0.3);
         else
-          paddleTilt += radians(0.5);
+          paddleTilt += radians(0.3);
     } else {
      clockwise = !clockwise; 
      if (clockwise)
-          paddleTilt -= radians(0.5);
+          paddleTilt -= radians(0.3);
         else
-          paddleTilt += radians(0.5);
+          paddleTilt += radians(0.3);
     }
       
     
@@ -54,18 +72,19 @@ public class mainMenu extends screen{
     text("PONG", 150, 50);
     
     textSize(16);
-    //if (selected) {fill(255, 0, 0);}
-    //  else {fill(255, 255, 255);}
     text("Start", 150, 100);
     
-    //paddle inverts colors
+    textSize(16);
+    text("Quit", 150, 115);
+    
+    //paddle inverts colors REFECTOR at some point
     loadPixels();
     PGraphics stencil = createGraphics(300, 200);
     
     pushMatrix();
     stencil.beginDraw();
     stencil.background(0);
-    stencil.translate(mouseX, mouseY);
+    stencil.translate(screenBat.x, screenBat.y);
     stencil.rotate(paddleTilt);
     //PImage inverted = get(mouseX-30, mouseY-10, 60, 20);
     PImage inverted = createImage(60, 20, RGB);
@@ -74,9 +93,9 @@ public class mainMenu extends screen{
       inverted.pixels[i] = color(255, 255, 255); 
     }
     inverted.updatePixels();
-    stencil.translate(-mouseX, -mouseY);
+    stencil.translate(-screenBat.x, -screenBat.y);
     //stencil.image(inverted, mouseX-30, mouseY-10);
-    stencil.rect(mouseX-15/2,mouseY-60/2,15,60);
+    stencil.rect(screenBat.x-15/2,screenBat.y-60/2,15,60);
     stencil.endDraw();
     popMatrix();
     
@@ -85,26 +104,6 @@ public class mainMenu extends screen{
     screenCopy.filter(INVERT);
     
     image(screenCopy, 0, 0);
-    
-    //image(stencil, 0, 0);
-    
-    
-    
-    //paddle inverts colors
-    //loadPixels();
-    //PImage paddle = createImage(60, 20, RGB);
-    
-    ////for (int i = 0; i < paddle.pixels.length; i++) {
-    //  for (int h = 0; h < paddle.height; h++){  
-    //    for (int w = 0; w < paddle.width; w++){
-    //      if (mouseY+h < 200 && mouseX+w < 300)
-    //        paddle.pixels[h*paddle.width+w] = pixels[(mouseY+h)*300+(mouseX+w)];
-    //    }
-    //  }
-    ////}
-    //paddle.filter(INVERT);
-    //paddle.updatePixels();
-    //image(paddle, mouseX, mouseY); 
   }
 }
 
