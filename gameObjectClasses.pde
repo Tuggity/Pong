@@ -52,6 +52,7 @@ public class ball extends gameObject  {
   public void draw() {
     strokeWeight(10);
     point(x, y);
+    strokeWeight(0);
   }  
 }
 
@@ -71,8 +72,8 @@ public class bat extends gameObject{
     
     y = 10;
     
-    w = 5;
-    h = 50;
+    w = 15;
+    h = 60;
   }
   
   public void update(){
