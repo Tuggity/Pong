@@ -28,7 +28,7 @@ public class ball extends gameObject  {
     x = width/2;
     y = height/2;
     
-    speed = 100;
+    speed = 300;
     direction = random(360);
     velocity = new PVector(cos(direction), -sin(direction));
   }
@@ -39,7 +39,7 @@ public class ball extends gameObject  {
     y = height/2;
 
     direction = random(360);
-    speed = 100;
+    speed = 300;
   }
   
   public boolean collision(){
