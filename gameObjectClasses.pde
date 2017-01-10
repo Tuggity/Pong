@@ -25,8 +25,8 @@ public class ball extends gameObject  {
   
   //create ball and set initial direction
   public ball(){
-    x = 150;
-    y = 100;
+    x = width/2;
+    y = height/2;
     
     speed = 100;
     direction = random(360);
@@ -34,8 +34,13 @@ public class ball extends gameObject  {
   }
   
   public void pitchBall() {
+<<<<<<< HEAD
     x = 150;
     y = 100;
+=======
+    x = width/2;
+    y = height/2;
+>>>>>>> origin/master
     direction = random(360);
     speed = 100;
   }
