@@ -1,5 +1,5 @@
 abstract class screen{
- abstract void update();
+ abstract void update(float dt);
  abstract void draw();
 }
 
@@ -15,7 +15,7 @@ public class mainMenu extends screen{
    screenBat.y = 40;
   }
   
-  public void update(){
+  public void update(float dt){
     if (mouseY > 100-textAscent() && mouseY < 100+textDescent()){
       textSize(16);
       if (mouseX > 150-textWidth("Start")/2 && mouseX < 150+textWidth("Start")/2){
@@ -50,15 +50,15 @@ public class mainMenu extends screen{
     
     if (paddleTilt > radians(-45+90) && paddleTilt < radians(45+90)){
       if (clockwise)
-          paddleTilt -= radians(0.3);
+          paddleTilt -= radians(45)*dt;
         else
-          paddleTilt += radians(0.3);
+          paddleTilt += radians(45)*dt;
     } else {
      clockwise = !clockwise; 
      if (clockwise)
-          paddleTilt -= radians(0.3);
+          paddleTilt -= radians(45)*dt;
         else
-          paddleTilt += radians(0.3);
+          paddleTilt += radians(45)*dt;
     }
       
     
@@ -133,10 +133,14 @@ public class game extends screen{
     objects.add(ai);
   }
   
-  public void update(){
+  public void update(float dt){
     //game logic
     for (int i = 0; i < objects.size(); i++) {
-      objects.get(i).update();
+      objects.get(i).update(dt);
+    }
+    if (playerBat.collision(newBall) || aiBat.collision(newBall)){
+     newBall.velocity.x = -newBall.velocity.x; 
+     newBall.speed += 100; 
     }
   }
   

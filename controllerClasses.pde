@@ -9,7 +9,7 @@ public class playerController extends controller{
      isPlayer = true; 
    }
    
-   public void update(){
+   public void update(float dt){
       actorPointer.y = mouseY;
    }
 }
@@ -23,11 +23,11 @@ public class aiController extends controller{
      isPlayer = false; 
    }
    
-  public void update(){
+  public void update(float dt){
       if (ballPointer.y < actorPointer.y) {
-        actorPointer.y -= 1;
+        actorPointer.y -= 60*dt;
       } else if (ballPointer.y > actorPointer.y) {
-        actorPointer.y += 1;
+        actorPointer.y += 60*dt;
       }
    } 
 }
