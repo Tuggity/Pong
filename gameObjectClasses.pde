@@ -29,11 +29,13 @@ public class ball extends gameObject  {
     y = 100;
     
     speed = 100;
-    direction = radians(80);//random(360);
+    direction = random(360);
     velocity = new PVector(cos(direction), -sin(direction));
   }
   
   public void pitchBall() {
+    x = 150;
+    y = 100;
     direction = random(360);
     speed = 100;
   }
@@ -41,12 +43,16 @@ public class ball extends gameObject  {
   public boolean collision(){
     
     if (y <= 0 || y >= 200) {
-      velocity.y = -velocity.y;  
+      velocity.y = -velocity.y;
       return true;
     } 
     if (x <= 0 || x >= 300) {
       //GOAL!!!
-      velocity.x = -velocity.x;  
+      //velocity.x = -velocity.x; 
+      //speed += 100;
+      
+      pitchBall();
+      
       return true;
     } 
     return false;
@@ -94,6 +100,17 @@ public class bat extends gameObject{
     
     w = 15;
     h = 60;
+  }
+  
+  public boolean collision(ball entity){
+    if (entity.x-10/2 < this.x+this.w/2 && 
+        entity.x+10/2 > this.x-this.w/2 &&
+        entity.y-10/2 < this.y+this.h/2 && 
+        entity.y+10/2 > this.y-this.h/2){
+    
+        return true;
+    }
+    return false;
   }
   
   public void update(float dt){

@@ -138,6 +138,10 @@ public class game extends screen{
     for (int i = 0; i < objects.size(); i++) {
       objects.get(i).update(dt);
     }
+    if (playerBat.collision(newBall) || aiBat.collision(newBall)){
+     newBall.velocity.x = -newBall.velocity.x; 
+     newBall.speed += 100; 
+    }
   }
   
   public void draw(){
