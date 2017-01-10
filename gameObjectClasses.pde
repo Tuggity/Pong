@@ -24,14 +24,16 @@ public class ball extends gameObject  {
   
   //create ball and set initial direction
   public ball(){
-    x = 150;
-    y = 100;
+    x = width/2;
+    y = height/2;
     
     speed = 2;
     direction = 1;
   }
   
   public void pitchBall() {
+    x = width/2;
+    y = height/2;
     direction = random(360);
     speed = 1;
   }
