@@ -34,18 +34,10 @@ public class ball extends gameObject  {
   }
   
   public void pitchBall() {
-<<<<<<< HEAD
-    x = width/2;
-    y = height/2;
-=======
-
-    x = 150;
-    y = 100;
-
+    
     x = width/2;
     y = height/2;
 
->>>>>>> origin/master
     direction = random(360);
     speed = 100;
   }

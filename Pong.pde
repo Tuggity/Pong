@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 //Pong Clone v0.4
-=======
-//Pong Clone v0.3
->>>>>>> origin/master
 //by Kasper Kristensen 09-03-2016
 
 screen currentScreen;
