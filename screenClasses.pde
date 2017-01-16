@@ -138,8 +138,18 @@ public class game extends screen{
     for (int i = 0; i < objects.size(); i++) {
       objects.get(i).update(dt);
     }
+<<<<<<< HEAD
     if (playerBat.collision(newBall) || aiBat.collision(newBall)){
      newBall.velocity.x = -newBall.velocity.x; 
+=======
+    if (playerBat.collision(newBall)){
+     newBall.velocity.x = -newBall.velocity.x;
+     newBall.velocity.y = (newBall.y-playerBat.y)/50;
+     newBall.speed += 100; 
+    } else if (aiBat.collision(newBall)){
+     newBall.velocity.x = -newBall.velocity.x;
+     newBall.velocity.y = (newBall.y-aiBat.y)/50;
+>>>>>>> refs/remotes/origin/master
      newBall.speed += 100; 
     }
   }

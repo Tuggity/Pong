@@ -1,4 +1,4 @@
-//Pong Clone v0.2
+//Pong Clone v0.4
 //by Kasper Kristensen 09-03-2016
 
 screen currentScreen;
