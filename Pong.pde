@@ -31,5 +31,3 @@ void draw() {
   
   currentScreen.draw();
 }
-//Robert is ssemi-best person 
-//Herpdpadpaspådasp*2/2
