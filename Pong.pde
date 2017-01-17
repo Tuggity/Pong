@@ -27,7 +27,7 @@ void draw() {
   
   //clear screen
   background(0);
-  stroke(255);
+  stroke(200);
   
   currentScreen.draw();
 }
